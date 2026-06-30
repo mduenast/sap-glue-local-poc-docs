@@ -1,0 +1,6 @@
+flowchart LR
+  source["SAP-like source"] --> extractor["Enterprise extractor"]
+  extractor --> landing["S3-like landing zone"]
+  landing --> manifest["Manifest-driven processing"]
+  manifest --> warehouse["Analytical warehouse"]
+  warehouse --> dbt["dbt execution"]

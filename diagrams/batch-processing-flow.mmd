@@ -1,0 +1,10 @@
+flowchart TD
+  A["Extractor writes batch files"] --> B["Extractor writes manifest"]
+  B --> C{"Manifest valid?"}
+  C -- "No" --> D["Mark batch failed"]
+  C -- "Yes" --> E{"Batch already accepted?"}
+  E -- "Yes" --> F["Skip or reject replay"]
+  E -- "No" --> G["Load files into analytical tables"]
+  G --> H["Record accepted batch"]
+  H --> I["Trigger dbt execution"]
+  I --> J["Record dbt status"]

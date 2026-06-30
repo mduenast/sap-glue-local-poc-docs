@@ -1,0 +1,50 @@
+site_name: SAP-like Local Extraction PoC
+site_description: Public-safe documentation for a generic local SAP-like extraction PoC.
+repo_url: https://github.com/mduenast/sap-glue-local-poc-docs
+docs_dir: docs
+
+theme:
+  name: material
+  language: en
+  features:
+    - navigation.sections
+    - navigation.indexes
+    - content.code.copy
+
+plugins:
+  - search
+  - mermaid2
+
+markdown_extensions:
+  - admonition
+  - attr_list
+  - md_in_html
+  - pymdownx.details
+  - pymdownx.superfences
+  - pymdownx.highlight
+  - pymdownx.inlinehilite
+
+nav:
+  - Home: index.md
+  - English:
+      - en/index.md
+      - Overview: en/00-overview.md
+      - Reference Architecture: en/01-reference-architecture.md
+      - Local PoC Architecture: en/02-local-poc-architecture.md
+      - Landing Zone Contract: en/03-landing-zone-contract.md
+      - Batch Manifest: en/04-batch-manifest.md
+      - Idempotency and Reprocessing: en/05-idempotency-and-reprocessing.md
+      - dbt Execution: en/06-dbt-execution.md
+      - Demo Walkthrough: en/07-demo-walkthrough.md
+      - Limitations: en/08-limitations.md
+  - Espanol:
+      - es/index.md
+      - Resumen: es/00-resumen.md
+      - Arquitectura de Referencia: es/01-arquitectura-de-referencia.md
+      - Arquitectura PoC Local: es/02-arquitectura-poc-local.md
+      - Contrato Landing Zone: es/03-contrato-landing-zone.md
+      - Manifest de Lote: es/04-manifest-de-lote.md
+      - Idempotencia y Reproceso: es/05-idempotencia-y-reproceso.md
+      - Ejecucion dbt: es/06-ejecucion-dbt.md
+      - Guia Demo: es/07-guia-demo.md
+      - Limitaciones: es/08-limitaciones.md
