@@ -2,6 +2,15 @@
 site/
 .cache/
 __pycache__/
+.pytest_cache/
 *.py[cod]
 .DS_Store
+__MACOSX/
 .idea/
+logs/
+target/
+dbt_packages/
+profiles.yml
+.user.yml
+*.duckdb
+*.duckdb.wal
