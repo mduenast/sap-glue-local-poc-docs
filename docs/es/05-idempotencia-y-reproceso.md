@@ -2,13 +2,31 @@
 
 Idempotencia significa que procesar el mismo lote aceptado mas de una vez no debe crear duplicados analiticos ni estados inconsistentes.
 
-## Reglas
+## Estado de lote
+
+El orquestador debe registrar estado para cada `batch_id`. En la arquitectura local, Floci DynamoDB representa este almacen de estado.
+
+Estados sugeridos:
+
+- `discovered`: manifest encontrado pero aun no validado.
+- `validated`: manifest y ficheros pasaron la validacion.
+- `loading`: la carga analitica esta en curso.
+- `accepted`: la carga termino correctamente.
+- `failed`: fallo la validacion, la carga o la ejecucion dbt.
+- `skipped`: el lote fue omitido intencionadamente, normalmente porque ya estaba aceptado.
+- `superseded`: el lote fue reemplazado por otro lote explicito.
+
+## Evitar cargas duplicadas
 
 - Tratar `batch_id` como identidad principal de proceso.
 - Registrar estados de lote aceptado, fallido, omitido y sustituido.
 - Rechazar la repeticion accidental de un lote inmutable ya aceptado.
 - Permitir reproceso explicito solo con un nuevo identificador de lote o una sustitucion controlada.
 - Separar los ficheros raw aterrizados del estado de carga analitica.
+
+## Comportamiento de lotes fallidos
+
+Un lote fallido debe seguir visible con suficiente contexto de error para permitir reintento o correccion. Un reintento tecnico puede reutilizar el mismo `batch_id` solo si el lote no fue aceptado. Si los datos fuente o los ficheros necesitan correccion despues de la aceptacion, la correccion debe publicarse como un nuevo lote o como una sustitucion controlada.
 
 ## Escenarios
 

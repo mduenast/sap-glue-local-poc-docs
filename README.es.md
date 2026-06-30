@@ -11,7 +11,7 @@ SAP-like source / enterprise extractor -> S3-like landing zone -> manifest-drive
 El patron de simulacion local es:
 
 ```text
-PostgreSQL -> extractor simulator -> Floci S3 -> local orchestrator -> DuckDB -> dbt-duckdb
+PostgreSQL -> extractor simulator -> Floci S3 + Floci DynamoDB -> local orchestrator -> DuckDB -> dbt-duckdb
 ```
 
 Este repositorio es solo de documentacion. No contiene codigo de laboratorio, modelos dbt, logica ejecutable de PoC, material de cliente, contenido de proyectos internos, material de propuestas comerciales ni detalles de sistemas productivos.

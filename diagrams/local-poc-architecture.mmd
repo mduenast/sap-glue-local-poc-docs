@@ -1,6 +1,8 @@
 flowchart LR
   postgres["PostgreSQL"] --> extractor["Extractor simulator"]
-  extractor --> floci["Floci S3"]
-  floci --> orchestrator["Local orchestrator"]
+  extractor --> floci_s3["Floci S3"]
+  extractor --> floci_ddb["Floci DynamoDB"]
+  floci_s3 --> orchestrator["Local orchestrator"]
+  floci_ddb --> orchestrator
   orchestrator --> duckdb["DuckDB"]
   duckdb --> dbt["dbt-duckdb"]

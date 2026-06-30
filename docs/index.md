@@ -16,5 +16,5 @@ SAP-like source / enterprise extractor -> S3-like landing zone -> manifest-drive
 The local pattern is:
 
 ```text
-PostgreSQL -> extractor simulator -> Floci S3 -> local orchestrator -> DuckDB -> dbt-duckdb
+PostgreSQL -> extractor simulator -> Floci S3 + Floci DynamoDB -> local orchestrator -> DuckDB -> dbt-duckdb
 ```
