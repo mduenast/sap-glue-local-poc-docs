@@ -17,7 +17,7 @@ SAP-like source / enterprise extractor -> S3-like landing zone -> manifest-drive
 The local simulation uses:
 
 ```text
-PostgreSQL -> extractor simulator -> Floci S3 + Floci DynamoDB -> local orchestrator -> DuckDB -> dbt-duckdb
+PostgreSQL -> extractor simulator -> Floci S3-compatible landing zone -> local orchestrator -> DuckDB -> dbt-duckdb
 ```
 
 ## What it validates
@@ -30,4 +30,4 @@ PostgreSQL -> extractor simulator -> Floci S3 + Floci DynamoDB -> local orchestr
 
 ## What it does not validate
 
-The PoC does not validate real SAP connectivity, real SNP Glue execution, real AWS infrastructure, real Snowflake external stages, production guarantees, or the functional design of any target dbt project.
+The PoC does not validate real SAP connectivity, real SNP Glue execution, real AWS infrastructure, real Snowflake external stages, production guarantees, vendor-specific runtime behavior, or the functional design of any target dbt project.

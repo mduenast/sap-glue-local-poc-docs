@@ -1,6 +1,6 @@
 flowchart TD
   A["Extractor writes batch files"] --> B["Extractor writes manifest"]
-  B --> C["Record discovered batch state"]
+  B --> C["Record discovered table_name + batch_id state"]
   C --> D{"Manifest valid?"}
   D -- "No" --> E["Mark batch failed"]
   D -- "Yes" --> F{"Batch already accepted?"}

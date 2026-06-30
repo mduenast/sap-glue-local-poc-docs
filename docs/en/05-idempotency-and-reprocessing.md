@@ -1,10 +1,20 @@
 # Idempotency and Reprocessing
 
-Idempotency means that processing the same accepted batch more than once should not create duplicate analytical records or inconsistent state.
+Idempotency means that processing the same accepted table batch more than once should not create duplicate analytical records or inconsistent state.
+
+## Target state key
+
+The preferred processing state key is:
+
+```text
+table_name + batch_id
+```
+
+This allows different tables to use independent batch sequences without accidental collisions. If the local implementation still treats `batch_id` as globally unique, that should be understood as a local simplification rather than a general contract requirement.
 
 ## Batch state
 
-The orchestrator should record state for each `batch_id`. In the local architecture, Floci DynamoDB represents this state store.
+The orchestrator should record state for each `table_name + batch_id`.
 
 Suggested states:
 
@@ -18,15 +28,15 @@ Suggested states:
 
 ## Avoiding duplicate loads
 
-- Treat `batch_id` as the primary processing identity.
+- Treat `table_name + batch_id` as the primary processing identity.
 - Record accepted, failed, skipped, and superseded batch states.
-- Reject accidental replay of an already accepted immutable batch.
+- Reject accidental replay of an already accepted immutable table batch.
 - Allow explicit reprocessing only through a new batch identifier or controlled supersession.
 - Keep raw landed files separate from analytical load state.
 
 ## Failed batch behavior
 
-A failed batch should remain visible with enough error context to support retry or correction. A technical retry may reuse the same `batch_id` only if the batch was not accepted. If the source data or files need correction after acceptance, the correction should be published as a new batch or as a controlled supersession.
+A failed batch should remain visible with enough error context to support retry or correction. A technical retry may reuse the same `table_name + batch_id` only if the batch was not accepted. If the source data or files need correction after acceptance, the correction should be published as a new batch or as a controlled supersession.
 
 ## Reprocessing scenarios
 

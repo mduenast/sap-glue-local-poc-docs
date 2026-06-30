@@ -37,7 +37,7 @@ nav:
       - dbt Execution: en/06-dbt-execution.md
       - Demo Walkthrough: en/07-demo-walkthrough.md
       - Limitations: en/08-limitations.md
-  - Espanol:
+  - Español:
       - es/index.md
       - Resumen: es/00-resumen.md
       - Arquitectura de Referencia: es/01-arquitectura-de-referencia.md
@@ -45,6 +45,6 @@ nav:
       - Contrato Landing Zone: es/03-contrato-landing-zone.md
       - Manifest de Lote: es/04-manifest-de-lote.md
       - Idempotencia y Reproceso: es/05-idempotencia-y-reproceso.md
-      - Ejecucion dbt: es/06-ejecucion-dbt.md
-      - Guia Demo: es/07-guia-demo.md
+      - Ejecución dbt: es/06-ejecucion-dbt.md
+      - Guía Demo: es/07-guia-demo.md
       - Limitaciones: es/08-limitaciones.md

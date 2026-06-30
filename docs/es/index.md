@@ -1,4 +1,4 @@
-# Documentacion en Espanol
+# Documentacion en Español
 
 Esta documentacion describe una prueba de concepto local y generica para explicar un patron de extraccion analitica tipo SAP sin depender de sistemas SAP reales, infraestructura cloud real ni un proyecto dbt productivo.
 
