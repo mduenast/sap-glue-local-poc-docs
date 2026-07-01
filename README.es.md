@@ -39,6 +39,8 @@ Crea un entorno virtual e instala las dependencias de documentacion:
 
 ```bash
 make setup
+make doctor
+make build
 ```
 
 Sirve la documentacion localmente:

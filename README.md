@@ -39,6 +39,8 @@ Create a virtual environment and install the documentation dependencies:
 
 ```bash
 make setup
+make doctor
+make build
 ```
 
 Serve the documentation locally:
