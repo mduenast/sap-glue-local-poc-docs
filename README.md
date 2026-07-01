@@ -35,24 +35,29 @@ This repository is documentation-only. It does not contain lab code, dbt models,
 
 ## Local preview
 
-Create a virtual environment, install the documentation dependencies, and run MkDocs:
+Create a virtual environment and install the documentation dependencies:
 
 ```bash
-python3.12 -m venv .venv
-source .venv/bin/activate
-pip install -r requirements.txt
-mkdocs serve
+make setup
+```
+
+Serve the documentation locally:
+
+```bash
+make serve
 ```
 
 Open the local URL printed by MkDocs, usually `http://127.0.0.1:8000/`.
 
 ## Strict build
 
-Use the same command as the GitHub Actions workflow:
+Run the strict documentation build:
 
 ```bash
-mkdocs build --strict
+make build
 ```
+
+The Makefile uses `.venv/bin/mkdocs`, so MkDocs does not need to be installed globally.
 
 ## GitHub Pages
 

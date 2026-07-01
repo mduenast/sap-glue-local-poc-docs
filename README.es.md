@@ -35,24 +35,29 @@ Este repositorio es solo de documentacion. No contiene codigo de laboratorio, mo
 
 ## Vista previa local
 
-Crea un entorno virtual, instala las dependencias de documentacion y ejecuta MkDocs:
+Crea un entorno virtual e instala las dependencias de documentacion:
 
 ```bash
-python3.12 -m venv .venv
-source .venv/bin/activate
-pip install -r requirements.txt
-mkdocs serve
+make setup
+```
+
+Sirve la documentacion localmente:
+
+```bash
+make serve
 ```
 
 Abre la URL local que imprima MkDocs, normalmente `http://127.0.0.1:8000/`.
 
 ## Build estricto
 
-Usa el mismo comando que el workflow de GitHub Actions:
+Ejecuta el build estricto de la documentacion:
 
 ```bash
-mkdocs build --strict
+make build
 ```
+
+El Makefile usa `.venv/bin/mkdocs`, por lo que no hace falta instalar MkDocs globalmente.
 
 ## GitHub Pages
 
